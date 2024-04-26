@@ -16,3 +16,7 @@ Protocol.derive(Jason.Encoder, Kujira.Fin.Pair,
 )
 
 Protocol.derive(Jason.Encoder, Kujira.Token, only: [:decimals, :denom])
+
+Protocol.derive(Jason.Encoder, Kujira.Fin.Book, only: [:asks, :bids])
+
+Protocol.derive(Jason.Encoder, Kujira.Fin.Book.Price, only: [:price, :total, :side])
