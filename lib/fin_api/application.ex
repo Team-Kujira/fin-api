@@ -15,9 +15,10 @@ defmodule FinApi.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: FinApi.PubSub},
       # Start the Endpoint (http/https)
-      FinApiWeb.Endpoint
+      FinApiWeb.Endpoint,
       # Start a worker by calling: FinApi.Worker.start_link(arg)
       # {FinApi.Worker, arg}
+      FinApi.Node
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
