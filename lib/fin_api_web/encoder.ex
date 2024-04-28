@@ -23,7 +23,7 @@ Protocol.derive(Jason.Encoder, Kujira.Token.Meta,
 
 Protocol.derive(Jason.Encoder, Kujira.Token.Trace, only: [:path, :base_denom])
 
-Protocol.derive(Jason.Encoder, Kujira.Token.Meta.Error, only: [:message])
+Protocol.derive(Jason.Encoder, Kujira.Token.Meta.Error, only: [:error])
 
 Protocol.derive(Jason.Encoder, Kujira.Fin.Book, only: [:asks, :bids])
 
