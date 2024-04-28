@@ -15,7 +15,15 @@ Protocol.derive(Jason.Encoder, Kujira.Fin.Pair,
   ]
 )
 
-Protocol.derive(Jason.Encoder, Kujira.Token, only: [:decimals, :denom])
+Protocol.derive(Jason.Encoder, Kujira.Token, only: [:denom, :meta, :trace])
+
+Protocol.derive(Jason.Encoder, Kujira.Token.Meta,
+  only: [:name, :decimals, :symbol, :coingecko_id, :png, :svg]
+)
+
+Protocol.derive(Jason.Encoder, Kujira.Token.Trace, only: [:path, :base_denom])
+
+Protocol.derive(Jason.Encoder, Kujira.Token.Meta.Error, only: [:message])
 
 Protocol.derive(Jason.Encoder, Kujira.Fin.Book, only: [:asks, :bids])
 
