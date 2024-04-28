@@ -15,7 +15,8 @@ config :fin_api, FinApiWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: FinApiWeb.ErrorView, accepts: ~w(json), layout: false],
   pubsub_server: FinApi.PubSub,
-  live_view: [signing_salt: "qoLhVOOB"]
+  live_view: [signing_salt: "qoLhVOOB"],
+  protocol_options: [idle_timeout: 60_000]
 
 # Configures Elixir's Logger
 config :logger, :console,
