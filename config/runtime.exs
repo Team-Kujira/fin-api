@@ -58,4 +58,24 @@ if config_env() == :prod do
       port: port
     ],
     secret_key_base: secret_key_base
+
+  host =
+    System.get_env("NODE_HOST") ||
+      raise """
+      environment variable NODE_HOST is missing.
+      """
+
+  port =
+    System.get_env("NODE_PORT") ||
+      raise """
+      environment variable NODE_PORT is missing.
+      """
+
+  websocket =
+    System.get_env("NODE_WEBSOCKET") ||
+      raise """
+      environment variable NODE_WEBSOCKET is missing.
+      """
+
+  config :fin_api, FinApi.Node, host: host, port: port, websocket: websocket
 end
