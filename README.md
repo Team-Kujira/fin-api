@@ -2,6 +2,8 @@
 
 APIs used to power [https://fin.kujira.network](https://fin.kujira.network).
 
+Publicly available endpoint available at [https://api.fin.kujira.network](https://api.fin.kujira.network), however self-hosting requires only a gRPC connection and is recommended via [Gigalixir](http://gigalixir.com)
+
 **Currently a WIP and progressively rolling over**
 
 To start your Phoenix server:
