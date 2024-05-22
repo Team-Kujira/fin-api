@@ -2,10 +2,13 @@ import Config
 
 # Configure your database
 config :fin_api, FinApi.Repo,
-  database: Path.expand("../fin_api_dev.db", Path.dirname(__ENV__.file)),
-  pool_size: 5,
+  username: "postgres",
+  password: "postgres",
+  database: "kujira_fin_api",
   stacktrace: true,
-  show_sensitive_data_on_connection_error: true
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10,
+  timeout: 60000
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
