@@ -28,7 +28,7 @@ defmodule FinApi.Trades do
     |> Repo.insert()
   end
 
-  defp sort(query, dir) do
+  def sort(query, dir) do
     order_by(query, [x], [
       {^dir, x.height},
       {^dir, x.tx_idx},

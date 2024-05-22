@@ -9,6 +9,7 @@ defmodule FinApiWeb.Router do
     pipe_through :api
     resources "/contracts", ContractsController, only: [:index, :show]
     resources "/trades", TradesController, only: [:index]
+    resources "/candles", CandlesController, only: [:show]
   end
 
   # Enables LiveDashboard only for development
