@@ -6,71 +6,38 @@ defmodule FinApi.TradingView do
     %{d | second: 0}
   end
 
-  def truncate(%NaiveDateTime{} = datetime, "3") do
-    datetime
-    |> truncate("1")
-    |> Map.update!(:minute, &(&1 - rem(&1, 3)))
-  end
+  def truncate(%NaiveDateTime{} = datetime, "3"),
+    do: datetime |> truncate("1") |> Map.update!(:minute, &(&1 - rem(&1, 3)))
 
-  def truncate(%NaiveDateTime{} = datetime, "5") do
-    datetime
-    |> truncate("1")
-    |> Map.update!(:minute, &(&1 - rem(&1, 5)))
-  end
+  def truncate(%NaiveDateTime{} = datetime, "5"),
+    do: datetime |> truncate("1") |> Map.update!(:minute, &(&1 - rem(&1, 5)))
 
-  def truncate(%NaiveDateTime{} = datetime, "15") do
-    datetime
-    |> truncate("1")
-    |> Map.update!(:minute, &(&1 - rem(&1, 15)))
-  end
+  def truncate(%NaiveDateTime{} = datetime, "15"),
+    do: datetime |> truncate("1") |> Map.update!(:minute, &(&1 - rem(&1, 15)))
 
-  def truncate(%NaiveDateTime{} = datetime, "30") do
-    datetime
-    |> truncate("1")
-    |> Map.update!(:minute, &(&1 - rem(&1, 30)))
-  end
+  def truncate(%NaiveDateTime{} = datetime, "30"),
+    do: datetime |> truncate("1") |> Map.update!(:minute, &(&1 - rem(&1, 30)))
 
-  def truncate(%NaiveDateTime{} = datetime, "60") do
-    datetime
-    |> truncate("1")
-    |> Map.put(:minute, 0)
-  end
+  def truncate(%NaiveDateTime{} = datetime, "60"),
+    do: datetime |> truncate("1") |> Map.put(:minute, 0)
 
-  def truncate(%NaiveDateTime{} = datetime, "120") do
-    datetime
-    |> truncate("60")
-    |> Map.update!(:hour, &(&1 - rem(&1, 2)))
-  end
+  def truncate(%NaiveDateTime{} = datetime, "120"),
+    do: datetime |> truncate("60") |> Map.update!(:hour, &(&1 - rem(&1, 2)))
 
-  def truncate(%NaiveDateTime{} = datetime, "180") do
-    datetime
-    |> truncate("60")
-    |> Map.update!(:hour, &(&1 - rem(&1, 3)))
-  end
+  def truncate(%NaiveDateTime{} = datetime, "180"),
+    do: datetime |> truncate("60") |> Map.update!(:hour, &(&1 - rem(&1, 3)))
 
-  def truncate(%NaiveDateTime{} = datetime, "240") do
-    datetime
-    |> truncate("60")
-    |> Map.update!(:hour, &(&1 - rem(&1, 4)))
-  end
+  def truncate(%NaiveDateTime{} = datetime, "240"),
+    do: datetime |> truncate("60") |> Map.update!(:hour, &(&1 - rem(&1, 4)))
 
-  def truncate(%NaiveDateTime{} = datetime, "1D") do
-    datetime
-    |> truncate("60")
-    |> Map.put(:hour, 0)
-  end
+  def truncate(%NaiveDateTime{} = datetime, "1D"),
+    do: datetime |> truncate("60") |> Map.put(:hour, 0)
 
-  def truncate(%NaiveDateTime{} = datetime, "1M") do
-    datetime
-    |> truncate("1D")
-    |> Map.put(:day, 1)
-  end
+  def truncate(%NaiveDateTime{} = datetime, "1M"),
+    do: datetime |> truncate("1D") |> Map.put(:day, 1)
 
-  def truncate(%NaiveDateTime{} = datetime, "12M") do
-    datetime
-    |> truncate("1M")
-    |> Map.put(:month, 1)
-  end
+  def truncate(%NaiveDateTime{} = datetime, "12M"),
+    do: datetime |> truncate("1M") |> Map.put(:month, 1)
 
   def with_range(q, from, to, "1") do
     with_cte(q, "bins",
