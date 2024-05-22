@@ -55,7 +55,8 @@ defmodule FinApi.Indexer do
            %{key: "type", value: type} | rest
          ],
          collection
-       ) do
+       )
+       when base_amount != "0" and quote_amount != "0" do
     base_amount = String.to_integer(base_amount)
     quote_amount = String.to_integer(quote_amount)
 
