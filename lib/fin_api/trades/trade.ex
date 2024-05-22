@@ -52,5 +52,6 @@ defmodule FinApi.Trades.Trade do
       :protocol,
       :timestamp
     ])
+    |> unique_constraint([:height, :tx_idx, :idx])
   end
 end
