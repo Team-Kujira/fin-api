@@ -98,7 +98,7 @@ defmodule FinApi.Indexer do
   defp scan_attributes([_ | rest], collection), do: scan_attributes(rest, collection)
   defp scan_attributes([], collection), do: collection
 
-  defp insert_order(collection, market, base_amount, quote_amount, type)
+  defp insert_order(collection, _market, base_amount, quote_amount, _type)
        when base_amount == "0" or quote_amount == "0",
        do: collection
 
