@@ -1,5 +1,23 @@
 require Protocol
 
+alias FinApi.Trades.Trade
+
+Protocol.derive(Jason.Encoder, Trade,
+  only: [
+    :height,
+    :tx_idx,
+    :idx,
+    :contract,
+    :txhash,
+    :quote_amount,
+    :base_amount,
+    :price,
+    :type,
+    :protocol,
+    :timestamp
+  ]
+)
+
 Protocol.derive(Jason.Encoder, Kujira.Fin.Pair,
   only: [
     :address,

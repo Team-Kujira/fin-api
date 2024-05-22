@@ -3,9 +3,9 @@ defmodule FinApi.Repo.Migrations.CreateTrades do
 
   def change do
     create table(:trades, primary_key: false) do
-      add(:height, :numeric, primary_key: true)
-      add(:tx_idx, :numeric, primary_key: true)
-      add(:idx, :numeric, primary_key: true)
+      add(:height, :integer, primary_key: true)
+      add(:tx_idx, :integer, primary_key: true)
+      add(:idx, :integer, primary_key: true)
       add(:contract, :text, null: false)
       add(:txhash, :string, null: false)
       add(:quote_amount, :numeric, null: false)

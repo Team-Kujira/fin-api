@@ -6,8 +6,16 @@ defmodule FinApi.Trades do
   alias FinApi.Trades.Trade
   import Ecto.Query
 
-  @spec list_trades(String.t(), :asc | :desc, non_neg_integer()) :: [Trade.t()]
-  def list_trades(contract, sort \\ :desc, limit \\ 100) do
+  @spec all_trades(non_neg_integer(), :asc | :desc) :: [Trade.t()]
+  def all_trades(limit \\ 100, sort \\ :desc) do
+    Trade
+    |> sort(sort)
+    |> limit(^limit)
+    |> Repo.all()
+  end
+
+  @spec list_trades(String.t(), non_neg_integer(), :asc | :desc) :: [Trade.t()]
+  def list_trades(contract, limit \\ 100, sort \\ :desc) do
     Trade
     |> where(contract: ^contract)
     |> sort(sort)
@@ -20,17 +28,11 @@ defmodule FinApi.Trades do
     |> Repo.insert()
   end
 
-  defp sort(query, :asc) do
+  defp sort(query, dir) do
     order_by(query, [x], [
-      {:asc, x.timestamp},
-      {:desc, x.id}
-    ])
-  end
-
-  defp sort(query, :desc) do
-    order_by(query, [x], [
-      {:desc, x.timestamp},
-      {:asc, x.id}
+      {^dir, x.height},
+      {^dir, x.tx_idx},
+      {^dir, x.idx}
     ])
   end
 end
