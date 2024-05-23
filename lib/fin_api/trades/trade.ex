@@ -19,7 +19,7 @@ defmodule FinApi.Trades.Trade do
     field :price, :decimal
     field :type, :string
     field :protocol, :string
-    field :timestamp, :naive_datetime_usec
+    field :timestamp, :utc_datetime_usec
 
     timestamps(type: :utc_datetime_usec)
   end
