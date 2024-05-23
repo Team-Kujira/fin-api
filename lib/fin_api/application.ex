@@ -19,7 +19,8 @@ defmodule FinApi.Application do
       # Start a worker by calling: FinApi.Worker.start_link(arg)
       # {FinApi.Worker, arg}
       FinApi.Node,
-      FinApi.Indexer
+      FinApi.Indexer,
+      FinApi.Invalidator
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
