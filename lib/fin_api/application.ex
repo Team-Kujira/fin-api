@@ -20,7 +20,7 @@ defmodule FinApi.Application do
       # {FinApi.Worker, arg}
       FinApi.Node,
       FinApi.Indexer,
-      FinApi.Invalidator
+      {Kujira.Invalidator, pubsub: FinApi.PubSub}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
