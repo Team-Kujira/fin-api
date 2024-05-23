@@ -33,6 +33,19 @@ Protocol.derive(Jason.Encoder, Kujira.Fin.Pair,
   ]
 )
 
+Protocol.derive(Jason.Encoder, Kujira.Fin.Order,
+  only: [
+    :id,
+    :owner,
+    :price,
+    :offer_token,
+    :original_offer_amount,
+    :remaining_offer_amount,
+    :filled_amount,
+    :created_at
+  ]
+)
+
 Protocol.derive(Jason.Encoder, Kujira.Token, only: [:denom, :meta, :trace])
 
 Protocol.derive(Jason.Encoder, Kujira.Token.Meta,
