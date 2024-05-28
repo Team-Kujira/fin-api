@@ -44,7 +44,8 @@ defmodule FinApi.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:kujira, "~> 0.1.51"},
       {:websockex, "~> 0.4.3"},
-      {:cors_plug, "~> 2.0"}
+      {:cors_plug, "~> 2.0"},
+      {:gun, "~> 2.0.1", hex: :grpc_gun, override: true}
     ]
   end
 
