@@ -42,7 +42,7 @@ defmodule FinApi.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:kujira, "~> 0.1.53"},
+      {:kujira, "~> 0.1.54"},
       {:websockex, "~> 0.4.3"},
       {:cors_plug, "~> 2.0"},
       {:gun, "~> 2.0.1", hex: :grpc_gun, override: true}
